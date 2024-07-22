@@ -29,14 +29,5 @@ public class ArticleMapper {
                 .build();
     }
 }
-//        ArticleDto articleDto=new ArticleDto();
-//        articleDto.setArticleid(article.getArticleid());
-//        articleDto.setAuthor(article.getAuthor());
-//        articleDto.setTitle(article.getTitle());
-//        articleDto.setBody(article.getBody());
-//        articleDto.setArticledate(article.getArticledate());
-//        articleDto.setLikes(article.getLikes());
-//        articleDto.setDisLikes(article.getDisLikes());
-//        articleDto.setDisabled(article.isDisabled());
-//        return articleDto;
+
 

@@ -6,7 +6,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Table(name = "users")
 @Entity
@@ -25,6 +27,11 @@ public class User {
     private String password;
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<Comment> comments;
+
+    @ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @JoinTable(name = "user-role",joinColumns = @JoinColumn(name = "Userid",referencedColumnName = "userid")
+    ,inverseJoinColumns = @JoinColumn(name = "Roleid",referencedColumnName = "id"))
+    private List<Role> roles;
 }
 //    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 //   private List<Article> articles;
@@ -33,7 +40,8 @@ public class User {
     "username" :"lana",
     "email":"lana@gmail.com",
     "mobilenumber":"0587438296",
-    "password" :"lana123"
+    "password" :"lana123",
+
 }
 
 {

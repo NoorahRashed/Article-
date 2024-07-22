@@ -12,6 +12,7 @@ public class UserMapper {
                 .username(userDto.getUsername())
                 .email(userDto.getEmail())
                 .mobilenumber(userDto.getMobilenumber())
+                .roles(userDto.getRoles())
                 .build();
     }
     public static UserDto Entity2UserDto(User user){
@@ -21,6 +22,7 @@ public class UserMapper {
                 .username(user.getUsername())
                 .email(user.getEmail())
                 .mobilenumber(user.getMobilenumber())
+                .roles(user.getRoles())
                 .build();
     }
 }

@@ -36,9 +36,7 @@ public class Article {
     private int DisLikes;
     private boolean Disabled;
 
-//    public String getAuthor() {
-//        return user.getUsername();
-//    }
+
     public void setDisLikes(int disLikes) {
         int disL=this.getDisLikes();
         DisLikes =disL+disLikes;

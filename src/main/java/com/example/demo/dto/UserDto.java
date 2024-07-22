@@ -1,6 +1,7 @@
 package com.example.demo.dto;
 
 import com.example.demo.models.Comment;
+import com.example.demo.models.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,4 +20,5 @@ public class UserDto {
     private String mobilenumber;
     private String password;
     private List<Comment> comments;
+    private List<Role>roles;
     }
