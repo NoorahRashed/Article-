@@ -3,11 +3,14 @@ package com.example.demo.service;
 import com.example.demo.Mapper.UserMapper;
 import com.example.demo.dto.UserDto;
 import com.example.demo.excption.EmailNotUnaqeExcption;
+import com.example.demo.excption.UsernameNotFoundExcption;
 import com.example.demo.models.Role;
 import com.example.demo.models.User;
 import com.example.demo.models.reposetory.RoleRebo;
 import com.example.demo.models.reposetory.UserRebo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -33,6 +36,9 @@ public class UserService1 {
     public UserDto insertuser (User user){
         if(userrebo.existsByEmail(user.getEmail())){
             throw new EmailNotUnaqeExcption("Email Already exists"+user.getEmail());
+        }
+        if(userrebo.existsByusername(user.getUsername())){
+            throw new UsernameNotFoundExcption("username is taken! "+user.getUsername());
         }
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         Role userRole=roleRebo.findRoleByRoleName("USER");

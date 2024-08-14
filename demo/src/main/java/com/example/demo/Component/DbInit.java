@@ -94,8 +94,57 @@ public class DbInit {
                 38,
                 false );
 
+        Article article3=new Article(
+                3,
+                user.getUsername(),
+                "Artificial intelligence",
+                "in its broadest sense, is intelligence exhibited by machines, particularly computer systems. It is a field of research in computer science that develops and studies methods and software that enable machines to perceive their environment and use learning and intelligence to take actions that maximize their chances of achieving defined goals.",
+                null,
+                user,
+                new ArrayList<>(),
+                2689,
+                478,
+                false );
+        Article article4=new Article(
+                4,
+                user2.getUsername(),
+                "Article to go",
+                "the people read articles to achieving defined goals.",
+                null,
+                user2,
+                new ArrayList<>(),
+                3570,
+                658,
+                false );
+        Article article5=new Article(
+                5,
+                user.getUsername(),
+                "Hi some info to know me ",
+                "I am a student in the cdog college i like to spend my free time with my family i study in medical school .",
+                null,
+                user,
+                new ArrayList<>(),
+                9876,
+                1257,
+                false );
+        Article article6=new Article(
+                6,
+                user1.getUsername(),
+                "this is Title",
+                "hear are the the content that you want every one to see .",
+                null,
+                user1,
+                new ArrayList<>(),
+                3570,
+                658,
+                false );
+
         articleRepo.save(article1);
         articleRepo.save(article2);
+        articleRepo.save(article3);
+        articleRepo.save(article4);
+        articleRepo.save(article5);
+        articleRepo.save(article6);
 
         Comment comment=new Comment(1,
                 user.getUsername(),"i didn't know",

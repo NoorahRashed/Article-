@@ -34,7 +34,7 @@ public class ArticleController {
     public ResponseEntity<ArticleDto> getarticle(@PathVariable("id") Integer id){
         return new ResponseEntity<>(articleService.getarticle(id),HttpStatus.OK);
     }
-
+    @PreAuthorize("hasAnyAuthority('USER')")
     @GetMapping
     public ResponseEntity<List<ArticleDto>> getarticles(@RequestParam(value = "page",defaultValue = "0")int page
             , @RequestParam(value = "size",defaultValue = "10")int size){
