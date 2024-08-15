@@ -8,16 +8,16 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
 public class GlobalHandler {
-    @ExceptionHandler(EmailNotUnaqeExcption.class)
-    public ResponseEntity<String> handelEmailNotUnaqeExcption(EmailNotUnaqeExcption ex){
+    @ExceptionHandler()
+    public ResponseEntity<String> handelEmailNotUnaqeExcption(NotFoundExcption ex){
         return new ResponseEntity<>(ex.getMessage(),HttpStatus.BAD_REQUEST);
     }
-    @ExceptionHandler(ArticleNotFoundExcption.class)
-    public ResponseEntity<String> handelArticleNotFoundExcption(ArticleNotFoundExcption ex){
+    @ExceptionHandler(NotFoundExcption.class)
+    public ResponseEntity<String> handelArticleNotFoundExcption(NotFoundExcption ex){
         return new ResponseEntity<>(ex.getMessage(),HttpStatus.BAD_REQUEST);
     }
-    @ExceptionHandler(UserNotFoundExcption.class)
-    public ResponseEntity<String> handelUserNotFoundExcption(UserNotFoundExcption ex){
+    @ExceptionHandler(NotFoundExcption.class)
+    public ResponseEntity<String> handelUserNotFoundExcption(NotFoundExcption ex){
         return new ResponseEntity<>(ex.getMessage(),HttpStatus.BAD_REQUEST);
     }
 }

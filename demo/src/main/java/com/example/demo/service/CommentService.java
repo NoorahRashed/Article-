@@ -1,14 +1,13 @@
 package com.example.demo.service;
 
-import com.example.demo.Mapper.ArticleMapper;
 import com.example.demo.Mapper.CommentMapper;
 import com.example.demo.dto.CommentDto;
 import com.example.demo.models.Article;
 import com.example.demo.models.Comment;
 import com.example.demo.models.User;
-import com.example.demo.models.reposetory.ArticleRepo;
-import com.example.demo.models.reposetory.CommentRepo;
-import com.example.demo.models.reposetory.UserRebo;
+import com.example.demo.reposetory.ArticleRepo;
+import com.example.demo.reposetory.CommentRepo;
+import com.example.demo.reposetory.UserRebo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.CrossOrigin;

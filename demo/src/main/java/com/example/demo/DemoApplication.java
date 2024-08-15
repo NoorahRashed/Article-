@@ -1,21 +1,9 @@
 package com.example.demo;
 
-import com.example.demo.models.Role;
-import com.example.demo.models.User;
-import com.example.demo.models.reposetory.RoleRebo;
-import com.example.demo.models.reposetory.UserRebo;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import java.util.Arrays;
-
-import java.util.ArrayList;
-import java.util.List;
 
 //@ComponentScan(basePackages = "com.example.demo")
 @EnableJpaRepositories(basePackages = {"com.example.demo.models.reposetory"})

@@ -20,6 +20,7 @@ import java.util.List;
 @CrossOrigin("http://localhost:4200")
 @RestController
 @RequestMapping("/article")
+
 public class ArticleController {
 
     private ArticleService articleService;

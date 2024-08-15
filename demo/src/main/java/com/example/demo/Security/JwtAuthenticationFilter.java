@@ -19,7 +19,7 @@ import java.io.IOException;
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private JwtGenerator jwtGenerator;
-    private CostomUserService costomUserService;
+    private CustomUserDetallsService costomUserService;
 
     @Autowired
     public JwtAuthenticationFilter() {
@@ -35,7 +35,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             String username =jwtGenerator.getUsernameFromJWT(token);
             UserDetails userDetails = costomUserService.loadUserByUsername(username);
             UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken
-                    (userDetails , userDetails.getAuthorities());
+                    (userDetails , null,userDetails.getAuthorities());
             authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
             SecurityContextHolder.getContext().setAuthentication(authenticationToken);
         }

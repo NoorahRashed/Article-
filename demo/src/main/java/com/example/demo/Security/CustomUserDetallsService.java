@@ -2,7 +2,7 @@ package com.example.demo.Security;
 
 import com.example.demo.models.Role;
 import com.example.demo.models.User;
-import com.example.demo.models.reposetory.UserRebo;
+import com.example.demo.reposetory.UserRebo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

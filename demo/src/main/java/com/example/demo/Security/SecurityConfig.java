@@ -22,7 +22,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @Configuration
 @EnableWebSecurity
-@EnableMethodSecurity
 public class SecurityConfig  {
 
 
@@ -40,29 +39,31 @@ public class SecurityConfig  {
 
     @Bean
     SecurityFilterChain FilterChain(HttpSecurity http) throws Exception {
-        http.cors(cors -> cors.disable());
+//        http.cors(cors -> cors.disable());
         http.csrf(csrf-> csrf.disable());
         http.exceptionHandling(exception -> exception.authenticationEntryPoint(authEntryPoint));
-        http.authorizeHttpRequests((requests) -> {
-            ((AuthorizeHttpRequestsConfigurer.AuthorizedUrl)requests
+        http.sessionManagement(session->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+        http.authorizeHttpRequests(requests -> requests
                     .requestMatchers("/h2-console/**").permitAll()
                     .requestMatchers(HttpMethod.GET, "/article/**").permitAll()
                     //.requestMatchers(HttpMethod.GET, "/article/{id}/comment").permitAll()
                     .requestMatchers(HttpMethod.POST, "/user/**").permitAll()
                     .requestMatchers("/login").permitAll()
                     .requestMatchers("/signup").permitAll()
-                    .anyRequest()).authenticated();
-        });
+                    .anyRequest().authenticated()
+        );
 
-        http.formLogin(Customizer.withDefaults());
-        http.sessionManagement(session->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+//        http.formLogin(Customizer.withDefaults());
+//        http.sessionManagement(session->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+
         http.headers(headers -> headers.frameOptions(frameOptionsConfig -> frameOptionsConfig.sameOrigin()));
         http.httpBasic(Customizer.withDefaults());
-        http.logout(logout -> logout
-                .logoutSuccessUrl("/login?logout")
-                .invalidateHttpSession(true)
-                .deleteCookies("JSESSIONID")
-                .permitAll());
+
+//        http.logout(logout -> logout
+//                .logoutSuccessUrl("/login?logout")
+//                .invalidateHttpSession(true)
+//                .deleteCookies("JSESSIONID")
+//                .permitAll());
         http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }

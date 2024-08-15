@@ -22,7 +22,7 @@ public class JwtGenerator {
                 .setSubject(username)
                 .setIssuedAt(new Date())
                 .setExpiration(expireDate)
-                .signWith(SignatureAlgorithm.ES512,SecurityConstants.jwtSecret)
+                .signWith(SignatureAlgorithm.HS512,SecurityConstants.jwtSecret)
                 .compact();
         return token;
     }
